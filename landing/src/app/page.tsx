@@ -5,7 +5,7 @@ import Features from '@/components/Features'
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-24 pb-24 w-full items-center">
+    <div className="flex flex-col items-center w-full">
       <Hero />
       <WhatIs />
       <Frameworks />
