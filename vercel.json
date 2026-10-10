@@ -1,5 +1,5 @@
 {
-  "buildCommand": "./build.sh",
+  "buildCommand": "bash build.sh || bash ../build.sh",
   "outputDirectory": "landing/out",
   "framework": null,
   "cleanUrls": true,
