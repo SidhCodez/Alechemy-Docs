@@ -16,7 +16,7 @@ export default function Hero() {
         Stop guessing how to talk to AI, start building.
       </p>
       <div className="flex flex-col sm:flex-row items-center gap-4">
-        <a href="/docs" className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-hover text-white text-base font-semibold px-6 py-3 rounded-lg transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(167,139,250,0.3)]">
+        <a href="/docs/index.html" className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-hover text-white text-base font-semibold px-6 py-3 rounded-lg transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(167,139,250,0.3)]">
           Explore Hackathon Alchemy
           <ArrowRight className="w-4 h-4" />
         </a>

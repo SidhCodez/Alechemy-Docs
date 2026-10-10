@@ -23,7 +23,7 @@ export default function Frameworks() {
           <p className="text-muted mb-8 max-w-sm flex-1">
             20 distinct categories with 4-phase structured prompts designed specifically for 24-48hr hackathons.
           </p>
-          <a href="/docs" className="inline-flex items-center gap-2 text-accent font-medium hover:text-accent-hover w-fit group/link">
+          <a href="/docs/index.html" className="inline-flex items-center gap-2 text-accent font-medium hover:text-accent-hover w-fit group/link">
             Read Docs <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
           </a>
         </div>
