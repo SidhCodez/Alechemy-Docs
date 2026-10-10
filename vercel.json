@@ -3,5 +3,5 @@
   "outputDirectory": "landing/out",
   "framework": null,
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": true
 }
