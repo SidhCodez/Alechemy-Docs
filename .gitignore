@@ -1,0 +1,12 @@
+# mdBook build artifacts
+docs/book/
+
+# Temporary source clone
+hackathon-alchemy-source/
+
+# Obsidian workspace
+.obsidian/
+
+# OS and logs
+.DS_Store
+*.log

@@ -1,0 +1,18 @@
+[book]
+title = "Alchemy Docs"
+authors = ["Siddiq"]
+description = "The ultimate prompt framework for hackathons, builders, and creators."
+src = "src"
+language = "en"
+
+[output.html]
+additional-css = ["custom.css"]
+default-theme = "dark"
+preferred-dark-theme = "dark"
+git-repository-url = "https://github.com/SidhCodez/Alchemy-Docs"
+edit-url-template = "https://github.com/SidhCodez/Alchemy-Docs/edit/main/docs/src/{path}"
+not-found-page = "404.md"
+
+# [output.linkcheck]
+# follow-web-links = false
+# warning-policy = "warn"
