@@ -1,40 +1,60 @@
 "use client";
 import { useEffect, useRef } from 'react';
-import { motion, useSpring, useMotionValue } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, Terminal } from 'lucide-react';
+import { ArrowRight, Terminal, FlaskConical } from 'lucide-react';
+import { motion, useSpring, useMotionValue } from 'framer-motion';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const WORDS = ["Ultimate", "Prompt", "Framework", "for", "Builders."];
+const WORDS = [
+  { text: "Ultimate", gold: true },
+  { text: "Prompt", gold: false },
+  { text: "Framework", gold: false },
+  { text: "for", gold: false },
+  { text: "Builders.", gold: true },
+];
 
-function MagneticButton({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) {
+function MagneticBtn({ href, children, primary }: { href: string; children: React.ReactNode; primary?: boolean }) {
   const ref = useRef<HTMLAnchorElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const sx = useSpring(x, { stiffness: 300, damping: 20 });
-  const sy = useSpring(y, { stiffness: 300, damping: 20 });
+  const x = useMotionValue(0); const y = useMotionValue(0);
+  const sx = useSpring(x, { stiffness: 250, damping: 18 });
+  const sy = useSpring(y, { stiffness: 250, damping: 18 });
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const onMove = (e: React.MouseEvent) => {
     if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    x.set((e.clientX - cx) * 0.35);
-    y.set((e.clientY - cy) * 0.35);
+    const r = ref.current.getBoundingClientRect();
+    x.set((e.clientX - r.left - r.width / 2) * 0.3);
+    y.set((e.clientY - r.top - r.height / 2) * 0.3);
   };
-  const handleMouseLeave = () => { x.set(0); y.set(0); };
+  const onLeave = () => { x.set(0); y.set(0); };
+
+  const baseStyle = primary ? {
+    background: 'linear-gradient(135deg, #f5c046, #e8a628)',
+    boxShadow: '0 0 30px rgba(232,166,40,0.35), 0 4px 20px rgba(232,166,40,0.2)',
+    fontFamily: 'Space Grotesk, sans-serif',
+    x: sx, y: sy,
+  } : {
+    border: '1px solid rgba(232,166,40,0.2)',
+    color: 'var(--text-secondary)',
+    fontFamily: 'Space Grotesk, sans-serif',
+    x: sx, y: sy,
+  };
 
   return (
     <motion.a
-      ref={ref}
-      href={href}
-      style={{ x: sx, y: sy }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className={className}
-      whileTap={{ scale: 0.96 }}
+      ref={ref} href={href}
+      style={baseStyle}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      whileTap={{ scale: 0.95 }}
+      className={primary
+        ? "inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold transition-all duration-300 text-[#06080c]"
+        : "inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-medium transition-all duration-300"
+      }
+      onMouseEnter={(e) => {
+        if (!primary) (e.currentTarget as HTMLElement).style.borderColor = 'rgba(232,166,40,0.5)';
+      }}
     >
       {children}
     </motion.a>
@@ -43,147 +63,97 @@ function MagneticButton({ href, children, className }: { href: string; children:
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
-  const headlineRef = useRef<HTMLHeadingElement>(null);
+  const headRef = useRef<HTMLHeadingElement>(null);
   const subRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
-  const scrollIndicatorRef = useRef<HTMLDivElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Bail out on reduced motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
     const ctx = gsap.context(() => {
-      // Badge intro
-      gsap.from(badgeRef.current, {
-        opacity: 0, y: -20, duration: 0.8, delay: 0.2, ease: 'power3.out'
-      });
-
-      // Word-by-word stagger reveal via clip-path
-      const words = headlineRef.current?.querySelectorAll('.word-inner');
+      // Badge
+      gsap.from(badgeRef.current, { opacity: 0, y: -16, duration: 0.7, delay: 0.1, ease: 'power3.out' });
+      // Words stagger
+      const words = headRef.current?.querySelectorAll('.wi');
       if (words) {
-        gsap.from(words, {
-          yPercent: 110,
-          opacity: 0,
-          duration: 0.9,
-          stagger: 0.08,
-          ease: 'power4.out',
-          delay: 0.4,
-        });
+        gsap.from(words, { yPercent: 115, opacity: 0, duration: 1, stagger: 0.07, ease: 'power4.out', delay: 0.3 });
       }
-
-      // Subtext fade in
-      gsap.from(subRef.current, {
-        opacity: 0, y: 30, duration: 1, delay: 0.9, ease: 'power3.out'
-      });
-
-      // CTA slide up
-      gsap.from(ctaRef.current, {
-        opacity: 0, y: 30, duration: 0.9, delay: 1.1, ease: 'power3.out'
-      });
-
-      // Scroll indicator
-      gsap.to(scrollIndicatorRef.current, {
-        y: 10, repeat: -1, yoyo: true, duration: 1.2, ease: 'sine.inOut', delay: 2
-      });
-
-      // Scroll-driven parallax: headline scales out slightly on scroll
+      // Shimmer line
+      gsap.from(lineRef.current, { scaleX: 0, transformOrigin: 'left', duration: 1.2, delay: 0.8, ease: 'expo.out' });
+      // Sub + CTA
+      gsap.from([subRef.current, ctaRef.current], { opacity: 0, y: 28, duration: 0.9, stagger: 0.12, delay: 0.9, ease: 'power3.out' });
+      // Scroll parallax
       gsap.to(heroRef.current, {
-        yPercent: 15,
-        opacity: 0.3,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        }
+        yPercent: 12, opacity: 0.2, ease: 'none',
+        scrollTrigger: { trigger: heroRef.current, start: 'top top', end: 'bottom top', scrub: 1 },
       });
     }, heroRef);
-
     return () => ctx.revert();
   }, []);
 
   return (
-    <section
-      ref={heroRef}
-      className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center px-4 pt-20 pb-16 text-center will-change-transform"
-    >
+    <section ref={heroRef} className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center px-4 pt-24 pb-20 text-center will-change-transform">
       {/* Badge */}
-      <div ref={badgeRef} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary border border-border text-xs font-medium text-muted mb-10">
-        <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse"></span>
-        Hackathon Alchemy v1.0 is live
-        <span className="px-1.5 py-0.5 rounded bg-accent/10 text-accent text-[10px] font-semibold tracking-wide">NEW</span>
+      <div ref={badgeRef} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-10 text-xs font-medium"
+        style={{ background: 'rgba(232,166,40,0.08)', border: '1px solid rgba(232,166,40,0.2)', color: 'var(--accent-primary)', fontFamily: 'Space Mono, monospace' }}>
+        <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+        Hackathon Alchemy v1.0 — Now Live
+        <FlaskConical className="w-3.5 h-3.5" />
       </div>
 
-      {/* Headline with word-mask reveal */}
-      <h1
-        ref={headlineRef}
-        className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95] max-w-5xl mb-8"
-      >
-        <span className="block text-foreground/50 text-2xl md:text-3xl font-light tracking-widest uppercase mb-4 letter-spacing-wide">
+      {/* Headline */}
+      <h1 ref={headRef} className="text-5xl md:text-7xl lg:text-[90px] font-bold tracking-tight leading-[0.9] max-w-5xl mb-2"
+        style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+        <span className="block text-sm md:text-base tracking-[0.5em] uppercase mb-6"
+          style={{ color: 'var(--text-muted)', fontFamily: 'DM Sans, sans-serif', fontWeight: 300 }}>
           The
         </span>
-        <div className="flex flex-wrap justify-center gap-x-4 gap-y-1">
-          {WORDS.map((word, i) => (
+        <div className="flex flex-wrap justify-center gap-x-5 gap-y-2">
+          {WORDS.map((w, i) => (
             <span key={i} className="word-mask">
-              <span
-                className={`word-inner inline-block ${
-                  i === 0 ? 'gradient-text' : 
-                  i === 4 ? 'text-accent' : 
-                  'text-foreground'
-                }`}
-              >
-                {word}
+              <span className="wi inline-block" style={w.gold ? {
+                background: 'linear-gradient(135deg, #f5c046, #c97d18)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              } : { color: 'var(--text-primary)' }}>
+                {w.text}
               </span>
             </span>
           ))}
         </div>
       </h1>
 
-      {/* Subheadline */}
-      <p
-        ref={subRef}
-        className="text-base md:text-xl text-muted max-w-xl leading-relaxed mb-12"
-      >
-        Accelerate your hackathons, products, and careers with
-        <span className="text-foreground"> structured, AI-ready prompt systems.</span>
-        <br className="hidden md:block" /> Stop guessing. Start building.
+      {/* Shimmer divider */}
+      <div ref={lineRef} className="w-32 h-px my-8 shimmer-line" />
+
+      {/* Subtext */}
+      <p ref={subRef} className="text-base md:text-lg max-w-lg leading-relaxed mb-10"
+        style={{ color: 'var(--text-secondary)', fontFamily: 'DM Sans, sans-serif' }}>
+        Accelerate your hackathons, products, and careers with{' '}
+        <span style={{ color: 'var(--text-primary)' }}>structured, AI-ready prompt systems.</span>{' '}
+        Stop guessing. Start building.
       </p>
 
       {/* CTAs */}
       <div ref={ctaRef} className="flex flex-col sm:flex-row items-center gap-4">
-        <MagneticButton
-          href="/docs/index.html"
-          className="group inline-flex items-center justify-center gap-2.5 bg-accent text-white text-sm font-semibold px-7 py-3.5 rounded-full transition-all duration-300 hover:bg-accent-hover shadow-[0_0_30px_rgba(167,139,250,0.4)] hover:shadow-[0_0_50px_rgba(167,139,250,0.6)]"
-        >
-          Explore Hackathon Alchemy
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-        </MagneticButton>
-
-        <MagneticButton
-          href="https://github.com/SidhCodez/Alechemy-Docs"
-          className="inline-flex items-center justify-center gap-2 border border-border text-muted text-sm font-medium px-7 py-3.5 rounded-full hover:border-accent/40 hover:text-foreground transition-all duration-300 hover:bg-accent/5"
-        >
-          <Terminal className="w-4 h-4" />
-          View on GitHub
-        </MagneticButton>
+        <MagneticBtn href="/docs/index.html" primary>
+          Explore Hackathon Alchemy <ArrowRight className="w-4 h-4" />
+        </MagneticBtn>
+        <MagneticBtn href="https://github.com/SidhCodez/Alechemy-Docs">
+          <Terminal className="w-4 h-4" /> View on GitHub
+        </MagneticBtn>
       </div>
 
       {/* Scroll indicator */}
-      <div ref={scrollIndicatorRef} className="absolute bottom-10 flex flex-col items-center gap-2 text-muted/40">
-        <span className="text-[10px] tracking-[0.3em] uppercase">Scroll</span>
-        <div className="w-px h-10 bg-gradient-to-b from-muted/40 to-transparent"></div>
-      </div>
-
-      {/* Decorative line grid */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03]" 
-          style={{
-            backgroundImage: 'linear-gradient(var(--text-primary) 1px, transparent 1px), linear-gradient(90deg, var(--text-primary) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-          }}
-        ></div>
+      <div className="absolute bottom-8 flex flex-col items-center gap-2"
+        style={{ color: 'var(--text-muted)' }}>
+        <span className="text-[10px] tracking-[0.4em] uppercase" style={{ fontFamily: 'Space Mono, monospace' }}>Scroll</span>
+        <motion.div
+          className="w-px h-8"
+          style={{ background: 'linear-gradient(to bottom, var(--accent-primary), transparent)' }}
+          animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
+        />
       </div>
     </section>
   );

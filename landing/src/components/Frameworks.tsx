@@ -8,117 +8,132 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Frameworks() {
   const sectionRef = useRef<HTMLElement>(null);
-  const card1Ref = useRef<HTMLDivElement>(null);
-  const card2Ref = useRef<HTMLDivElement>(null);
+  const headRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
     const ctx = gsap.context(() => {
-      gsap.from([card1Ref.current, card2Ref.current], {
-        opacity: 0,
-        y: 100,
-        duration: 1,
-        stagger: 0.2,
-        ease: 'power4.out',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-        },
+      gsap.from(headRef.current, {
+        opacity: 0, y: 50, duration: 0.9, ease: 'power3.out',
+        scrollTrigger: { trigger: headRef.current, start: 'top 85%' },
       });
+      const cards = gridRef.current?.querySelectorAll('.fw-card');
+      if (cards) {
+        gsap.from(cards, {
+          opacity: 0, y: 80, duration: 1, stagger: 0.18, ease: 'power4.out',
+          scrollTrigger: { trigger: gridRef.current, start: 'top 78%' },
+        });
+      }
     }, sectionRef);
-
     return () => ctx.revert();
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      id="frameworks"
-      className="relative z-10 w-full max-w-5xl mx-auto px-4 py-32"
-    >
-      <div className="text-center mb-20">
-        <p className="text-xs tracking-[0.4em] uppercase text-accent mb-4 font-medium">Frameworks</p>
-        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 tracking-tight">
+    <section ref={sectionRef} id="frameworks" className="relative z-10 w-full max-w-5xl mx-auto px-4 py-28">
+      <div ref={headRef} className="text-center mb-16">
+        <p className="text-xs tracking-[0.45em] uppercase mb-3 font-medium"
+          style={{ color: 'var(--accent-primary)', fontFamily: 'Space Mono, monospace' }}>
+          Frameworks
+        </p>
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-5"
+          style={{ fontFamily: 'Space Grotesk, sans-serif', color: 'var(--text-primary)' }}>
           Built for every builder.
         </h2>
-        <p className="text-muted max-w-lg mx-auto text-base leading-relaxed">
-          Structured prompt systems engineered for specific workflows, from 48-hour hackathons to production-grade products.
+        <p className="max-w-lg mx-auto text-base leading-relaxed"
+          style={{ color: 'var(--text-secondary)', fontFamily: 'DM Sans, sans-serif' }}>
+          Structured prompt systems engineered for specific workflows,
+          from 48-hour hackathons to production-grade products.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-5">
-        {/* Hackathon Alchemy — LIVE */}
-        <div
-          ref={card1Ref}
-          className="group relative flex flex-col p-8 rounded-2xl border border-border overflow-hidden cursor-default transition-all duration-500 hover:-translate-y-1 hover:border-accent/40"
-          style={{ background: 'linear-gradient(135deg, #111318 0%, #0a0b0f 100%)' }}
-        >
-          {/* Top glow */}
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
-          {/* Radial glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-accent/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+      <div ref={gridRef} className="grid md:grid-cols-2 gap-5">
+        {/* ─── Card 1: Hackathon Alchemy (LIVE) ─── */}
+        <div className="fw-card group relative flex flex-col p-8 rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1"
+          style={{ background: 'var(--bg-card)', border: '1px solid rgba(232,166,40,0.15)' }}>
+          {/* Gold top bar */}
+          <div className="absolute top-0 inset-x-0 h-px shimmer-line" />
+          {/* Hover glow */}
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-2xl"
+            style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(232,166,40,0.08), transparent 65%)' }} />
 
           <div className="relative z-10 flex flex-col flex-1">
-            <div className="flex items-center justify-between mb-6">
-              <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center">
-                <Code2 className="w-5 h-5 text-accent" />
+            <div className="flex items-center justify-between mb-7">
+              <div className="w-11 h-11 rounded-xl flex items-center justify-center"
+                style={{ background: 'rgba(232,166,40,0.1)', border: '1px solid rgba(232,166,40,0.25)' }}>
+                <Code2 className="w-5 h-5" style={{ color: 'var(--accent-primary)' }} />
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-success/10 border border-success/20 text-success text-xs font-medium">
-                <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium"
+                style={{ background: 'rgba(45,212,160,0.1)', border: '1px solid rgba(45,212,160,0.25)', color: 'var(--success)' }}>
+                <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                 Live
               </div>
             </div>
 
-            <h3 className="text-2xl font-bold text-foreground mb-3">Hackathon Alchemy</h3>
-            <p className="text-sm text-muted mb-3 leading-relaxed flex-1">
-              20 distinct hackathon categories. 4-phase structured prompts per category. Covering AI/ML, Web3, IoT, Cybersecurity, No-Code, Gaming, and more.
+            <h3 className="text-2xl font-bold mb-3" style={{ fontFamily: 'Space Grotesk, sans-serif', color: 'var(--text-primary)' }}>
+              Hackathon Alchemy
+            </h3>
+            <p className="text-sm leading-relaxed mb-6 flex-1" style={{ color: 'var(--text-secondary)', fontFamily: 'DM Sans, sans-serif' }}>
+              20 distinct hackathon categories. 4-phase structured prompts per category.
+              Covering AI/ML, Web3, IoT, Cybersecurity, No-Code, Gaming, and more.
             </p>
 
-            {/* Stats row */}
-            <div className="grid grid-cols-3 gap-3 mb-8">
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-3 mb-7">
               {[['20', 'Categories'], ['4', 'Phases each'], ['532+', 'Prompts']].map(([val, label]) => (
-                <div key={label} className="text-center p-2 rounded-lg bg-background/60 border border-border">
-                  <div className="text-lg font-bold text-accent">{val}</div>
-                  <div className="text-[10px] text-muted">{label}</div>
+                <div key={label} className="text-center py-2.5 px-2 rounded-xl"
+                  style={{ background: 'var(--bg-secondary)', border: '1px solid rgba(232,166,40,0.1)' }}>
+                  <div className="text-lg font-bold" style={{ color: 'var(--accent-primary)', fontFamily: 'Space Grotesk, sans-serif' }}>{val}</div>
+                  <div className="text-[10px] mt-0.5" style={{ color: 'var(--text-muted)', fontFamily: 'DM Sans, sans-serif' }}>{label}</div>
                 </div>
               ))}
             </div>
 
-            <a
-              href="/docs/index.html"
-              className="group/btn inline-flex items-center justify-center gap-2 bg-accent text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-accent-hover transition-colors w-full"
+            <a href="/docs/index.html"
+              className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold transition-all duration-300 group/btn"
+              style={{
+                background: 'linear-gradient(135deg, #f5c046, #e8a628)',
+                color: '#06080c',
+                fontFamily: 'Space Grotesk, sans-serif',
+                boxShadow: '0 0 20px rgba(232,166,40,0.2)',
+              }}
+              onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.boxShadow = '0 0 35px rgba(232,166,40,0.4)'}
+              onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.boxShadow = '0 0 20px rgba(232,166,40,0.2)'}
             >
-              Read Docs
-              <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" />
+              Read Docs <ArrowRight className="w-4 h-4" />
             </a>
           </div>
         </div>
 
-        {/* Builder Alchemy — COMING SOON */}
-        <div
-          ref={card2Ref}
-          className="group relative flex flex-col p-8 rounded-2xl border border-border/40 border-dashed overflow-hidden cursor-default"
-          style={{ background: 'linear-gradient(135deg, #0d0f14 0%, #0a0b0f 100%)' }}
-        >
+        {/* ─── Card 2: Builder Alchemy (COMING SOON) ─── */}
+        <div className="fw-card relative flex flex-col p-8 rounded-2xl overflow-hidden"
+          style={{ background: 'var(--bg-secondary)', border: '1px dashed rgba(232,166,40,0.1)' }}>
           <div className="relative z-10 flex flex-col flex-1">
-            <div className="flex items-center justify-between mb-6">
-              <div className="w-10 h-10 rounded-xl bg-background border border-border flex items-center justify-center opacity-50">
-                <Hammer className="w-5 h-5 text-muted" />
+            <div className="flex items-center justify-between mb-7">
+              <div className="w-11 h-11 rounded-xl flex items-center justify-center opacity-40"
+                style={{ background: 'var(--bg-tertiary)', border: '1px solid var(--border)' }}>
+                <Hammer className="w-5 h-5" style={{ color: 'var(--text-muted)' }} />
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-background border border-border text-muted text-xs font-medium">
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium"
+                style={{ background: 'var(--bg-tertiary)', border: '1px solid var(--border)', color: 'var(--text-muted)', fontFamily: 'Space Mono, monospace' }}>
                 Coming Soon
               </div>
             </div>
 
-            <h3 className="text-2xl font-bold text-muted/60 mb-3">Builder Alchemy</h3>
-            <p className="text-sm text-muted/50 mb-8 leading-relaxed flex-1">
-              Production-ready prompt architectures for solo builders, indie hackers, and startup engineering teams moving fast.
+            <h3 className="text-2xl font-bold mb-3 opacity-40"
+              style={{ fontFamily: 'Space Grotesk, sans-serif', color: 'var(--text-primary)' }}>
+              Builder Alchemy
+            </h3>
+            <p className="text-sm leading-relaxed mb-8 flex-1 opacity-40"
+              style={{ color: 'var(--text-secondary)', fontFamily: 'DM Sans, sans-serif' }}>
+              Production-ready prompt architectures for solo builders, indie hackers,
+              and startup engineering teams moving fast.
             </p>
 
-            <div className="inline-flex items-center gap-2 text-muted/30 text-sm font-medium">
-              <Zap className="w-4 h-4" />
-              In development — drop us a star to follow progress
+            <div className="inline-flex items-center gap-2 text-sm opacity-30"
+              style={{ color: 'var(--text-muted)', fontFamily: 'DM Sans, sans-serif' }}>
+              <Zap className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
+              In development — ⭐ star the repo to follow progress
             </div>
           </div>
         </div>
