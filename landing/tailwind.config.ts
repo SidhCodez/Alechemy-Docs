@@ -12,15 +12,15 @@ const config: Config = {
         background: 'var(--bg-primary)',
         secondary: 'var(--bg-secondary)',
         tertiary: 'var(--bg-tertiary)',
-        card: 'var(--bg-card)',
         foreground: 'var(--text-primary)',
         muted: 'var(--text-secondary)',
-        'text-muted': 'var(--text-muted)',
         accent: 'var(--accent-primary)',
         'accent-hover': 'var(--accent-hover)',
         border: 'var(--border)',
-        success: 'var(--success)',
       },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      }
     },
   },
   plugins: [],

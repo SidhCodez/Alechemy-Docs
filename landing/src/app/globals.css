@@ -2,95 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap');
-
 :root {
-  /* === ALCHEMY GOLD THEME === */
-  --bg-primary:    #06080c;
-  --bg-secondary:  #0c0f15;
-  --bg-tertiary:   #111620;
-  --bg-card:       #0e1219;
-
-  --text-primary:  #f0ede8;
-  --text-secondary:#9a9488;
-  --text-muted:    #4d4840;
-
-  /* Gold/Amber accent — "the alchemy colour" */
-  --accent-primary:  #e8a628;
-  --accent-hover:    #f5c046;
-  --accent-dim:      rgba(232, 166, 40, 0.12);
-  --accent-glow:     rgba(232, 166, 40, 0.25);
-
-  /* Teal for success/live */
-  --success:  #2dd4a0;
-  --warning:  #f87060;
-
-  --border:        rgba(232, 166, 40, 0.08);
-  --border-strong: rgba(232, 166, 40, 0.18);
-}
-
-/* Reduced motion — swap all animations for static */
-@media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-html {
-  background-color: var(--bg-primary);
-  scroll-behavior: smooth;
+  /* Default to Dark Mode per UI_SPEC.md */
+  --bg-primary: #0f1115;
+  --bg-secondary: #161a22;
+  --bg-tertiary: #1e2330;
+  --text-primary: #e6e6e6;
+  --text-secondary: #8b949e;
+  --text-muted: #484f58;
+  --accent-primary: #a78bfa;
+  --accent-hover: #c4b5fd;
+  --accent-glow: rgba(167, 139, 250, 0.15);
+  --border: #30363d;
+  --success: #34d399;
+  --warning: #fbbf24;
+  --error: #f87171;
 }
 
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'DM Sans', system-ui, sans-serif;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-
-h1, h2, h3, h4, h5, h6, .font-display {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-}
-
-code, pre, .font-mono {
-  font-family: 'Space Mono', monospace;
-}
-
-/* Gradient text — gold */
-.gradient-text {
-  background: linear-gradient(135deg, #f5c046 0%, #e8a628 40%, #c97d18 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Shimmer line */
-.shimmer-line {
-  background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
-  height: 1px;
-}
-
-/* Word reveal mask */
-.word-mask { overflow: hidden; display: inline-block; }
-.word-mask span { display: inline-block; }
-
-/* Scrollbar */
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: var(--bg-primary); }
-::-webkit-scrollbar-thumb { background: var(--accent-primary); border-radius: 3px; opacity: 0.5; }
-
-/* Noise grain overlay */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.028;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 256px 256px;
 }
