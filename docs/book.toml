@@ -6,6 +6,7 @@ src = "src"
 language = "en"
 
 [output.html]
+site-url = "/docs/"
 additional-css = ["custom.css"]
 additional-js = ["custom.js"]
 default-theme = "dark"

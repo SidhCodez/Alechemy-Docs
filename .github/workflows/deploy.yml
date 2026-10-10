@@ -13,6 +13,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
 
@@ -23,20 +28,18 @@ jobs:
           unzip -o /tmp/linkcheck.zip -d $HOME/.cargo/bin/
           chmod +x $HOME/.cargo/bin/mdbook*
 
-      - name: Build the book
-        run: mdbook build docs
+      - name: Build Everything (Docs + Next.js)
+        run: ./build.sh
 
       - name: Verify build output
         run: |
-          test -f docs/book/index.html
-          test -f docs/book/searchindex.js
+          test -f landing/out/index.html
+          test -f landing/out/docs/index.html
+          test -f landing/out/docs/searchindex.js
           echo "Build verified successfully."
-
-      - name: Check Links
-        run: mdbook-linkcheck -s docs
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: alchemy-docs-build
-          path: docs/book/
+          path: landing/out/

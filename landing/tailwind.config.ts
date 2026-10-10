@@ -17,6 +17,9 @@ const config: Config = {
         accent: 'var(--accent-primary)',
         'accent-hover': 'var(--accent-hover)',
         border: 'var(--border)',
+        success: 'var(--success)',
+        warning: 'var(--warning)',
+        error: 'var(--error)'
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
