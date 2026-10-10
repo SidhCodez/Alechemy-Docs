@@ -293,3 +293,37 @@ img {
         font-size: 14px;
     }
 }
+
+/* Sidebar Expand/Collapse All Controls */
+.sidebar-toggle-controls {
+    display: flex;
+    gap: 6px;
+    padding: 10px 12px 6px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 8px;
+}
+
+.sidebar-toggle-controls button {
+    flex: 1;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Inter', system-ui, sans-serif;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+
+.sidebar-toggle-controls button:hover {
+    background: var(--accent-primary);
+    color: #ffffff;
+    border-color: var(--accent-primary);
+}
+
+.sidebar-toggle-controls button:active {
+    transform: scale(0.97);
+}

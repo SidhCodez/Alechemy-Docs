@@ -1,19 +1,7 @@
 {
-  "version": 2,
-  "buildCommand": "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && source $HOME/.cargo/env && (curl -sL https://github.com/rust-lang/mdBook/releases/download/v0.4.52/mdbook-v0.4.52-x86_64-unknown-linux-gnu.tar.gz | tar -xz -C $HOME/.cargo/bin/ || cargo install mdbook --version 0.4.52) && mdbook build docs",
-  "outputDirectory": "docs/book",
-  "installCommand": "echo 'Skipping Node install'",
+  "buildCommand": "./build.sh",
+  "outputDirectory": "landing/out",
   "framework": null,
   "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/docs/:path*",
-      "destination": "/:path*"
-    }
-  ]
+  "trailingSlash": false
 }

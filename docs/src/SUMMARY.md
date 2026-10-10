@@ -9,7 +9,7 @@
 
 ## 01. AI / ML Hackathons
 
-- [Category Overview](hackathon-alchemy/01-AI-ML/README.md)
+- [AI / ML Hackathons](hackathon-alchemy/01-AI-ML/README.md)
   - [Phase 1: Problem Definition](hackathon-alchemy/01-AI-ML/phase-1/README.md)
     - [PROBLEM_ANALYSIS](hackathon-alchemy/01-AI-ML/phase-1/PROBLEM_ANALYSIS.md)
     - [PRD](hackathon-alchemy/01-AI-ML/phase-1/PRD.md)
@@ -36,7 +36,7 @@
 
 ## 02. Non-AI / Traditional Software
 
-- [Category Overview](hackathon-alchemy/02-Non-AI/README.md)
+- [Non-AI / Traditional Software](hackathon-alchemy/02-Non-AI/README.md)
   - [Phase 1: Problem Definition](hackathon-alchemy/02-Non-AI/phase-1/README.md)
     - [PROBLEM_ANALYSIS](hackathon-alchemy/02-Non-AI/phase-1/PROBLEM_ANALYSIS.md)
     - [PRD](hackathon-alchemy/02-Non-AI/phase-1/PRD.md)
@@ -59,7 +59,7 @@
 
 ## 03. Automation & Workflow
 
-- [Category Overview](hackathon-alchemy/03-Automation/README.md)
+- [Automation & Workflow](hackathon-alchemy/03-Automation/README.md)
   - [Phase 1: Problem Definition](hackathon-alchemy/03-Automation/phase-1/README.md)
     - [PROBLEM_ANALYSIS](hackathon-alchemy/03-Automation/phase-1/PROBLEM_ANALYSIS.md)
     - [PRD](hackathon-alchemy/03-Automation/phase-1/PRD.md)
@@ -86,7 +86,7 @@
 
 ## 04. No-Code / Low-Code
 
-- [Category Overview](hackathon-alchemy/04-No-Code/README.md)
+- [No-Code / Low-Code](hackathon-alchemy/04-No-Code/README.md)
   - [Phase 1: Problem Definition](hackathon-alchemy/04-No-Code/phase-1/README.md)
     - [PROBLEM_ANALYSIS](hackathon-alchemy/04-No-Code/phase-1/PROBLEM_ANALYSIS.md)
     - [PRD](hackathon-alchemy/04-No-Code/phase-1/PRD.md)
@@ -110,7 +110,7 @@
 
 ## 05. Data & Analytics
 
-- [Category Overview](hackathon-alchemy/05-Data-Analytics/README.md)
+- [Data & Analytics](hackathon-alchemy/05-Data-Analytics/README.md)
   - [Phase 1: Problem Definition](hackathon-alchemy/05-Data-Analytics/phase-1/README.md)
     - [PROBLEM_ANALYSIS](hackathon-alchemy/05-Data-Analytics/phase-1/PROBLEM_ANALYSIS.md)
     - [PRD](hackathon-alchemy/05-Data-Analytics/phase-1/PRD.md)
@@ -136,7 +136,7 @@
 
 ## 06. Web3 / Blockchain
 
-- [Category Overview](hackathon-alchemy/06-Web3/README.md)
+- [Web3 / Blockchain](hackathon-alchemy/06-Web3/README.md)
   - [Phase 1: Problem Definition](hackathon-alchemy/06-Web3/phase-1/README.md)
     - [PROBLEM_ANALYSIS](hackathon-alchemy/06-Web3/phase-1/PROBLEM_ANALYSIS.md)
     - [PRD](hackathon-alchemy/06-Web3/phase-1/PRD.md)
@@ -162,7 +162,7 @@
 
 ## 07. IoT / Hardware / Robotics
 
-- [Category Overview](hackathon-alchemy/07-IoT/README.md)
+- [IoT / Hardware / Robotics](hackathon-alchemy/07-IoT/README.md)
   - [Phase 1: Problem Definition](hackathon-alchemy/07-IoT/phase-1/README.md)
     - [PROBLEM_ANALYSIS](hackathon-alchemy/07-IoT/phase-1/PROBLEM_ANALYSIS.md)
     - [PRD](hackathon-alchemy/07-IoT/phase-1/PRD.md)
@@ -189,7 +189,7 @@
 
 ## 08. AR / VR / XR / Metaverse
 
-- [Category Overview](hackathon-alchemy/08-AR-VR/README.md)
+- [AR / VR / XR / Metaverse](hackathon-alchemy/08-AR-VR/README.md)
   - [Phase 1: Problem Definition](hackathon-alchemy/08-AR-VR/phase-1/README.md)
     - [PROBLEM_ANALYSIS](hackathon-alchemy/08-AR-VR/phase-1/PROBLEM_ANALYSIS.md)
     - [PRD](hackathon-alchemy/08-AR-VR/phase-1/PRD.md)
@@ -216,7 +216,7 @@
 
 ## 09. Cybersecurity
 
-- [Category Overview](hackathon-alchemy/09-Cybersecurity/README.md)
+- [Cybersecurity](hackathon-alchemy/09-Cybersecurity/README.md)
   - [Phase 1: Problem Definition](hackathon-alchemy/09-Cybersecurity/phase-1/README.md)
     - [PROBLEM_ANALYSIS](hackathon-alchemy/09-Cybersecurity/phase-1/PROBLEM_ANALYSIS.md)
     - [PRD](hackathon-alchemy/09-Cybersecurity/phase-1/PRD.md)
@@ -243,7 +243,7 @@
 
 ## 10. Cloud / DevOps / Platform
 
-- [Category Overview](hackathon-alchemy/10-Cloud-Devops/README.md)
+- [Cloud / DevOps / Platform](hackathon-alchemy/10-Cloud-Devops/README.md)
   - [Phase 1: Problem Definition](hackathon-alchemy/10-Cloud-Devops/phase-1/README.md)
     - [PROBLEM_ANALYSIS](hackathon-alchemy/10-Cloud-Devops/phase-1/PROBLEM_ANALYSIS.md)
     - [PRD](hackathon-alchemy/10-Cloud-Devops/phase-1/PRD.md)
@@ -270,7 +270,7 @@
 
 ## 11. Domain / Industry Hackathons
 
-- [Category Overview](hackathon-alchemy/11-Domain-Industry/README.md)
+- [Domain / Industry Hackathons](hackathon-alchemy/11-Domain-Industry/README.md)
   - [Phase 1: Problem Definition](hackathon-alchemy/11-Domain-Industry/phase-1/README.md)
     - [PROBLEM_ANALYSIS](hackathon-alchemy/11-Domain-Industry/phase-1/PROBLEM_ANALYSIS.md)
     - [PRD](hackathon-alchemy/11-Domain-Industry/phase-1/PRD.md)
@@ -296,7 +296,7 @@
 
 ## 12. Creative / Media / Gaming
 
-- [Category Overview](hackathon-alchemy/12-Creative-Gaming/README.md)
+- [Creative / Media / Gaming](hackathon-alchemy/12-Creative-Gaming/README.md)
   - [Phase 1: Problem Definition](hackathon-alchemy/12-Creative-Gaming/phase-1/README.md)
     - [PROBLEM_ANALYSIS](hackathon-alchemy/12-Creative-Gaming/phase-1/PROBLEM_ANALYSIS.md)
     - [PRD](hackathon-alchemy/12-Creative-Gaming/phase-1/PRD.md)
@@ -323,7 +323,7 @@
 
 ## 13. Social Impact / Civic
 
-- [Category Overview](hackathon-alchemy/13-Social-Civic/README.md)
+- [Social Impact / Civic](hackathon-alchemy/13-Social-Civic/README.md)
   - [Phase 1: Problem Definition](hackathon-alchemy/13-Social-Civic/phase-1/README.md)
     - [PROBLEM_ANALYSIS](hackathon-alchemy/13-Social-Civic/phase-1/PROBLEM_ANALYSIS.md)
     - [PRD](hackathon-alchemy/13-Social-Civic/phase-1/PRD.md)
@@ -349,7 +349,7 @@
 
 ## 14. Open Innovation / Corporate
 
-- [Category Overview](hackathon-alchemy/14-Open-Innovation/README.md)
+- [Open Innovation / Corporate](hackathon-alchemy/14-Open-Innovation/README.md)
   - [Phase 1: Problem Definition](hackathon-alchemy/14-Open-Innovation/phase-1/README.md)
     - [PROBLEM_ANALYSIS](hackathon-alchemy/14-Open-Innovation/phase-1/PROBLEM_ANALYSIS.md)
     - [PRD](hackathon-alchemy/14-Open-Innovation/phase-1/PRD.md)
@@ -375,7 +375,7 @@
 
 ## 15. Beginner / Student / Community
 
-- [Category Overview](hackathon-alchemy/15-Beginner-Student/README.md)
+- [Beginner / Student / Community](hackathon-alchemy/15-Beginner-Student/README.md)
   - [Phase 1: Problem Definition](hackathon-alchemy/15-Beginner-Student/phase-1/README.md)
     - [PROBLEM_ANALYSIS](hackathon-alchemy/15-Beginner-Student/phase-1/PROBLEM_ANALYSIS.md)
     - [PRD](hackathon-alchemy/15-Beginner-Student/phase-1/PRD.md)
@@ -401,7 +401,7 @@
 
 ## 16. Platform-Sponsored
 
-- [Category Overview](hackathon-alchemy/16-Platform-Sponsored/README.md)
+- [Platform-Sponsored](hackathon-alchemy/16-Platform-Sponsored/README.md)
   - [Phase 1: Problem Definition](hackathon-alchemy/16-Platform-Sponsored/phase-1/README.md)
     - [PLATFORM_ANALYSIS](hackathon-alchemy/16-Platform-Sponsored/phase-1/PLATFORM_ANALYSIS.md)
     - [PRD](hackathon-alchemy/16-Platform-Sponsored/phase-1/PRD.md)
@@ -427,7 +427,7 @@
 
 ## 17. Debugging
 
-- [Category Overview](hackathon-alchemy/17-Debugging/README.md)
+- [Debugging](hackathon-alchemy/17-Debugging/README.md)
   - [Pillar 1: Detect & Define](hackathon-alchemy/17-Debugging/pillar-1/README.md)
     - [SYMPTOM_REPORT](hackathon-alchemy/17-Debugging/pillar-1/SYMPTOM_REPORT.md)
     - [IMPACT_ASSESSMENT](hackathon-alchemy/17-Debugging/pillar-1/IMPACT_ASSESSMENT.md)
@@ -456,7 +456,7 @@
 
 ## 18. Improve System Design
 
-- [Category Overview](hackathon-alchemy/18-System-Design/README.md)
+- [Improve System Design](hackathon-alchemy/18-System-Design/README.md)
   - [Dimension 1: Requirements & Scope](hackathon-alchemy/18-System-Design/dimension-1/README.md)
     - [DESIGN_REQUIREMENTS](hackathon-alchemy/18-System-Design/dimension-1/DESIGN_REQUIREMENTS.md)
     - [CAPACITY_ESTIMATION](hackathon-alchemy/18-System-Design/dimension-1/CAPACITY_ESTIMATION.md)
@@ -484,7 +484,7 @@
 
 ## 19. SEO Optimization
 
-- [Category Overview](hackathon-alchemy/19-SEO/README.md)
+- [SEO Optimization](hackathon-alchemy/19-SEO/README.md)
   - [Pillar 1: Technical Foundation](hackathon-alchemy/19-SEO/pillar-1/README.md)
     - [TECHNICAL_SEO_AUDIT](hackathon-alchemy/19-SEO/pillar-1/TECHNICAL_SEO_AUDIT.md)
     - [CORE_WEB_VITALS](hackathon-alchemy/19-SEO/pillar-1/CORE_WEB_VITALS.md)
@@ -517,7 +517,7 @@
 
 ## 20. Scalability
 
-- [Category Overview](hackathon-alchemy/20-Scalability/README.md)
+- [Scalability](hackathon-alchemy/20-Scalability/README.md)
   - [Layer 1: Baseline & Capacity](hackathon-alchemy/20-Scalability/layer-1/README.md)
     - [CAPACITY_BASELINE](hackathon-alchemy/20-Scalability/layer-1/CAPACITY_BASELINE.md)
     - [LOAD_PROFILE](hackathon-alchemy/20-Scalability/layer-1/LOAD_PROFILE.md)

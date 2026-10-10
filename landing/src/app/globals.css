@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Default to Dark Mode per UI_SPEC.md */
+  --bg-primary: #0f1115;
+  --bg-secondary: #161a22;
+  --bg-tertiary: #1e2330;
+  --text-primary: #e6e6e6;
+  --text-secondary: #8b949e;
+  --text-muted: #484f58;
+  --accent-primary: #a78bfa;
+  --accent-hover: #c4b5fd;
+  --accent-glow: rgba(167, 139, 250, 0.15);
+  --border: #30363d;
+  --success: #34d399;
+  --warning: #fbbf24;
+  --error: #f87171;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}

@@ -10,3 +10,9 @@ hackathon-alchemy-source/
 # OS and logs
 .DS_Store
 *.log
+
+# Next.js
+landing/node_modules
+landing/.next
+landing/out
+landing/package-lock.json
