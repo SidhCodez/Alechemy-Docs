@@ -12,6 +12,9 @@ fi
 
 mdbook build docs
 
+echo "=== 1.5. Fixing mdBook relative paths to absolute paths ==="
+node scripts/fix-paths.js
+
 echo "=== 2. Setting up Next.js app ==="
 cd landing
 npm install
