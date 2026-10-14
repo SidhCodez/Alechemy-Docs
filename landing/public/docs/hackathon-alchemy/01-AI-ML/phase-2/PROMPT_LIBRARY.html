@@ -8,7 +8,7 @@
 
         <!-- Custom HTML head -->
 
-        <meta name="description" content="The ultimate prompt framework for hackathons, builders, and creators.">
+        <meta name="description" content="PROMPT_LIBRARY prompt for 01. AI / ML Hackathons (phase 2): Complete blueprint prompt, technical requirements, and execution guidelines for builders.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
@@ -139,7 +139,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">Alchemy Docs</h1>
+                    <div class="menu-title">Alchemy Docs</div>
 
                     <div class="right-buttons">
                         <a href="../../../print.html" title="Print this book" aria-label="Print this book">
@@ -188,25 +188,56 @@
 <strong>Section:</strong> Phase 2: Technical Blueprint</p>
 </blockquote>
 <hr />
-<pre><code class="language-text">Act as an AI systems engineer.
-Using the PRD and AI Rules, create the AI Memory Management document for this hackathon project.
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>A robust Prompt Library is the operational engine of any generative AI product. Rather than scattering raw strings across application code, a centralized prompt library defines system prompts, user personas, variable placeholders, few-shot examples, and strict output schemas.</p>
+<p>This blueprint prompt instructs your AI coding assistant to create a modular, maintainable prompt repository tailored to your project's specific workflows and evaluation criteria.</p>
+<hr />
+<h2 id="key-prompt-engineering-components"><a class="header" href="#key-prompt-engineering-components">Key Prompt Engineering Components</a></h2>
+<p>When designing a production-ready prompt architecture:</p>
+<ul>
+<li><strong>System Prompts &amp; Personas:</strong> Establish the exact identity, constraints, domain expertise, and guardrails of the AI assistant.</li>
+<li><strong>Dynamic Variable Injection:</strong> Clearly demarcate dynamic user inputs (e.g., <code>{{USER_QUERY}}</code>, <code>{{RETRIEVED_CHUNKS}}</code>, <code>{{CURRENT_DATE}}</code>) to prevent prompt injection and context drift.</li>
+<li><strong>Few-Shot Demonstrations:</strong> Provide 2–3 high-quality input-output pairs that guide the model toward desired formatting and edge-case handling.</li>
+<li><strong>Structured Output Guarantees:</strong> Enforce deterministic formats (JSON schemas, Markdown tables, or tool calls) for predictable programmatic consumption.</li>
+</ul>
+<hr />
+<h2 id="the-blueprint-prompt"><a class="header" href="#the-blueprint-prompt">The Blueprint Prompt</a></h2>
+<p>Copy and paste the following prompt into your AI coding assistant (ChatGPT, Claude, Cursor, Copilot) after providing your PRD and AI Rules documents:</p>
+<pre><code class="language-text">Act as a principal prompt engineer and AI architect.
+Using the PRD, System Architecture, and AI Rules below, design the complete Prompt Library for this AI hackathon project.
 
 PRD: [PASTE PRD]
 AI_RULES: [PASTE AI_RULES]
+SYSTEM_ARCHITECTURE: [PASTE SYSTEM_ARCHITECTURE]
 
 Provide:
-1. Short-term memory (Conversation buffer, context window limits)
-2. Long-term memory (Database storage, Vector DB if applicable)
-3. Memory retrieval strategy (How past interactions are pulled into the prompt)
-4. Summarization strategy (What to do when the context window gets full)
-5. State management (How the backend tracks user sessions)
-6. Privacy considerations for stored memory
-7. A simple implementation plan for a 24-48 hour hackathon
+1. Core System Prompt (Complete, production-ready system instructions including persona, constraints, and safety guidelines)
+2. Task-Specific Prompt Templates (One template for each AI-driven feature in the PRD, complete with {{VARIABLE}} placeholders)
+3. Few-Shot Examples (At least two input/output pairs per complex task to demonstrate formatting and reasoning)
+4. Structured Output Schemas (JSON schema or Zod definition matching the output requirements of each task)
+5. Fallback &amp; Clarification Prompts (What to send when user input is ambiguous, incomplete, or off-topic)
+6. Token Optimization Notes (Guidelines on trimming unnecessary verbiage to maximize context efficiency)
+7. Developer Integration Guide (How backend code should load, populate, and call these prompts)
 
-Explain how memory improves the user experience without overcomplicating the tech stack.
+Ensure prompts prevent hallucinations, preserve brand tone, and are immediately ready for implementation.
 
-------------------
+-------------------------
 </code></pre>
+<hr />
+<h2 id="expected-output-structure"><a class="header" href="#expected-output-structure">Expected Output Structure</a></h2>
+<p>A complete Prompt Library document should include:</p>
+<ol>
+<li><strong>Master Persona:</strong> Defined tone, voice, reading level, and operational boundaries.</li>
+<li><strong>Template Catalog:</strong> Markdown-formatted files or JSON structures mapping feature names to system and user prompt pairs.</li>
+<li><strong>Guardrails &amp; Negative Constraints:</strong> Explicit instructions on prohibited topics, sensitive data handling, and refusal phrasing.</li>
+<li><strong>Few-Shot Exemplars:</strong> Concrete examples illustrating target quality, brevity, and formatting.</li>
+</ol>
+<hr />
+<h2 id="hackathon-pro-tips"><a class="header" href="#hackathon-pro-tips">Hackathon Pro-Tips</a></h2>
+<ul>
+<li><strong>Version Your Prompts:</strong> Keep prompt strings in dedicated files (e.g., <code>prompts/v1/extract_summary.ts</code>) so team members can iterate on copy without breaking backend logic.</li>
+<li><strong>Test with Edge Cases:</strong> Verify prompts with malformed inputs, empty context, and adversarially crafted queries before the judging demo.</li>
+</ul>
 
                     </main>
 

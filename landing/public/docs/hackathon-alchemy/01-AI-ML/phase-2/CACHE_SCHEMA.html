@@ -8,7 +8,7 @@
 
         <!-- Custom HTML head -->
 
-        <meta name="description" content="The ultimate prompt framework for hackathons, builders, and creators.">
+        <meta name="description" content="CACHE_SCHEMA prompt for 01. AI / ML Hackathons (phase 2): Complete blueprint prompt, technical requirements, and execution guidelines for builders.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
@@ -139,7 +139,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">Alchemy Docs</h1>
+                    <div class="menu-title">Alchemy Docs</div>
 
                     <div class="right-buttons">
                         <a href="../../../print.html" title="Print this book" aria-label="Print this book">
@@ -188,26 +188,50 @@
 <strong>Section:</strong> Phase 2: Technical Blueprint</p>
 </blockquote>
 <hr />
-<pre><code class="language-text">Act as a backend/DevOps engineer.
-Using the System Architecture and API Specification, create a Caching Strategy document for this AI hackathon project.
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>In AI hackathon prototypes, latency and rate limits are the primary enemies of a successful presentation. Calling frontier LLMs repeatedly for identical queries consumes precious seconds and exhausts API quotas. A pragmatic caching strategy drastically improves UI responsiveness and shields your application from upstream downtime.</p>
+<p>This blueprint prompt guides your backend team in architecting an effective caching layer, covering in-memory key-value stores, semantic caching, and cache invalidation policies.</p>
+<hr />
+<h2 id="core-ai-caching-paradigms"><a class="header" href="#core-ai-caching-paradigms">Core AI Caching Paradigms</a></h2>
+<p>When designing a caching schema for generative applications:</p>
+<ul>
+<li><strong>Exact-Match Key Caching:</strong> Cache responses based on a deterministic hash of the model name, temperature, and sanitized prompt string. If an exact duplicate query arrives, return the stored response in &lt;10 milliseconds.</li>
+<li><strong>Semantic Caching:</strong> For natural language queries that share identical intent but differ in phrasing, use vector embeddings and cosine similarity thresholds (e.g. &gt;0.95 similarity) to serve cached completions.</li>
+<li><strong>Embedding Caching:</strong> Generating vector embeddings for static documents or FAQs should happen once; cache all generated embeddings locally to eliminate duplicate embedding API calls.</li>
+<li><strong>Cache TTL &amp; Volatility:</strong> Set generous Time-To-Live (TTL) values for static queries and demo workflows to ensure zero-latency responses during your live pitch.</li>
+</ul>
+<hr />
+<h2 id="the-blueprint-prompt"><a class="header" href="#the-blueprint-prompt">The Blueprint Prompt</a></h2>
+<p>Copy and paste the following prompt into your AI coding assistant (ChatGPT, Claude, Cursor, Copilot) after providing your System Architecture and API Specification documents:</p>
+<pre><code class="language-text">Act as a backend and DevOps engineer.
+Using the System Architecture and API Specification below, create a comprehensive Caching Strategy document for this AI hackathon project.
 
 ARCHITECTURE: [PASTE SYSTEM_ARCHITECTURE]
 API_SPEC: [PASTE API_SPECIFICATION]
 
 Provide:
-1. Cache strategy (Redis, In-memory, Semantic Cache)
-2. Cache key structure (How to uniquely identify a request)
-3. TTL (Time-to-live) for different types of data
-4. Cache invalidation strategy (When to clear the cache)
-5. What to cache (AI responses, embeddings, user sessions)
-6. What NOT to cache (Personal data, sensitive prompts)
-7. Fallback if cache fails
-8. A simple implementation checklist
+1. Cache strategy selection (In-memory, Redis, Upstash, or Semantic Cache)
+2. Cache key naming convention (How to uniquely identify prompt requests, sessions, and embeddings)
+3. Time-to-live (TTL) rules for each data tier (Static responses, dynamic chats, user profiles)
+4. Cache invalidation strategy (Trigger events for clearing or updating stale cache entries)
+5. Content whitelist (What should be cached: common LLM outputs, embeddings, metadata)
+6. Content blacklist (What must never be cached: auth tokens, personal data, sensitive credentials)
+7. Fallback behavior (How the application handles cache misses or connection failures)
+8. A practical implementation checklist tailored for a 24-48 hour hackathon
 
-Explain how caching will save money and make the demo run faster.
+Explain how this caching strategy saves money, prevents rate limit crashes, and accelerates the demo.
 
-------------------
+-------------------------
 </code></pre>
+<hr />
+<h2 id="expected-output-structure"><a class="header" href="#expected-output-structure">Expected Output Structure</a></h2>
+<p>A complete Caching Strategy document should include:</p>
+<ol>
+<li><strong>Architecture Blueprint:</strong> Storage technology decision (e.g., Upstash Redis for serverless Next.js, or local in-memory node-cache).</li>
+<li><strong>Key Schema Catalog:</strong> Structured table of key patterns (e.g., <code>ai:cache:v1:{hash(prompt)}</code>, <code>emb:v1:{doc_id}</code>).</li>
+<li><strong>Invalidation Matrix:</strong> Clear triggers defining when records expire or get purged.</li>
+<li><strong>Resilience Strategy:</strong> Graceful bypass logic ensuring that if the cache fails, queries pass directly to the LLM without crashing the app.</li>
+</ol>
 
                     </main>
 

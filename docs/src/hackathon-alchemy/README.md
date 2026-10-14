@@ -54,26 +54,26 @@ For complex engineering disciplines beyond the 4-phase model, Hackathon Alchemy 
 
 | # | Category | Focus |
 |---|---|---|
-| 01 | **[AI / ML Hackathons](01-AI-ML/README.md)** | LLMs, RAG, AI Agents, Vision, NLP, Prompt Library |
-| 02 | **[Non-AI / Traditional Software](02-Non-AI/README.md)** | Web Apps, Backend, SaaS, Mobile, Databases |
-| 03 | **[Automation & Workflow](03-Automation/README.md)** | n8n, Make, Zapier, Webhooks, API Orchestration |
-| 04 | **[No-Code / Low-Code](04-No-Code/README.md)** | Bubble, FlutterFlow, Airtable, Visual Development |
-| 05 | **[Data & Analytics](05-Data-Analytics/README.md)** | Pipelines, ETL, Dashboards, Data Warehousing |
-| 06 | **[Web3 / Blockchain](06-Web3/README.md)** | Smart Contracts, dApps, Tokenomics, Gas Optimization |
-| 07 | **[IoT / Hardware / Robotics](07-IoT/README.md)** | Embedded Systems, Microcontrollers, Sensors, Telemetry |
-| 08 | **[AR / VR / XR / Metaverse](08-AR-VR/README.md)** | Spatial Computing, Unity/Unreal, 3D Assets, Interactions |
-| 09 | **[Cybersecurity](09-Cybersecurity/README.md)** | Threat Modeling, Attack Surfaces, AppSec, Incident Response |
-| 10 | **[Cloud / DevOps / Platform](10-Cloud-Devops/README.md)** | Docker, Kubernetes, CI/CD, Terraform, Infrastructure |
-| 11 | **[Domain & Industry](11-Domain-Industry/README.md)** | FinTech, HealthTech, EdTech, GovTech, Compliance |
-| 12 | **[Creative / Media / Gaming](12-Creative-Gaming/README.md)** | Game Design, Mechanics, Storytelling, Digital Media |
-| 13 | **[Social Impact / Civic](13-Social-Civic/README.md)** | Accessibility, Sustainability, Open Data, Public Good |
-| 14 | **[Open Innovation / Corporate](14-Open-Innovation/README.md)** | Sponsor Challenges, Corporate Sprints, Business Models |
-| 15 | **[Beginner / Student / Community](15-Beginner-Student/README.md)** | College Hackathons, First-Time Builders, Mentorship |
-| 16 | **[Platform-Sponsored](16-Platform-Sponsored/README.md)** | Official Partner SDKs, Quotas, Ecosystem Integrations |
-| 17 | **[Debugging](17-Debugging/README.md)** | 6 Pillars: Root Cause Analysis, Bisect, Reproduction |
-| 18 | **[Improve System Design](18-System-Design/README.md)** | 8 Dimensions: High Availability, Distributed Architecture |
-| 19 | **[SEO Optimization](19-SEO/README.md)** | 8 Pillars: Technical Audits, Core Web Vitals, Structured Data |
-| 20 | **[Scalability](20-Scalability/README.md)** | 10 Layers: Load Balancing, Caching, Asynchronous Queues |
+| 01 | **[AI / ML Hackathons](01-AI-ML/index.html)** | LLMs, RAG, AI Agents, Vision, NLP, Prompt Library |
+| 02 | **[Non-AI / Traditional Software](02-Non-AI/index.html)** | Web Apps, Backend, SaaS, Mobile, Databases |
+| 03 | **[Automation & Workflow](03-Automation/index.html)** | n8n, Make, Zapier, Webhooks, API Orchestration |
+| 04 | **[No-Code / Low-Code](04-No-Code/index.html)** | Bubble, FlutterFlow, Airtable, Visual Development |
+| 05 | **[Data & Analytics](05-Data-Analytics/index.html)** | Pipelines, ETL, Dashboards, Data Warehousing |
+| 06 | **[Web3 / Blockchain](06-Web3/index.html)** | Smart Contracts, dApps, Tokenomics, Gas Optimization |
+| 07 | **[IoT / Hardware / Robotics](07-IoT/index.html)** | Embedded Systems, Microcontrollers, Sensors, Telemetry |
+| 08 | **[AR / VR / XR / Metaverse](08-AR-VR/index.html)** | Spatial Computing, Unity/Unreal, 3D Assets, Interactions |
+| 09 | **[Cybersecurity](09-Cybersecurity/index.html)** | Threat Modeling, Attack Surfaces, AppSec, Incident Response |
+| 10 | **[Cloud / DevOps / Platform](10-Cloud-Devops/index.html)** | Docker, Kubernetes, CI/CD, Terraform, Infrastructure |
+| 11 | **[Domain & Industry](11-Domain-Industry/index.html)** | FinTech, HealthTech, EdTech, GovTech, Compliance |
+| 12 | **[Creative / Media / Gaming](12-Creative-Gaming/index.html)** | Game Design, Mechanics, Storytelling, Digital Media |
+| 13 | **[Social Impact / Civic](13-Social-Civic/index.html)** | Accessibility, Sustainability, Open Data, Public Good |
+| 14 | **[Open Innovation / Corporate](14-Open-Innovation/index.html)** | Sponsor Challenges, Corporate Sprints, Business Models |
+| 15 | **[Beginner / Student / Community](15-Beginner-Student/index.html)** | College Hackathons, First-Time Builders, Mentorship |
+| 16 | **[Platform-Sponsored](16-Platform-Sponsored/index.html)** | Official Partner SDKs, Quotas, Ecosystem Integrations |
+| 17 | **[Debugging](17-Debugging/index.html)** | 6 Pillars: Root Cause Analysis, Bisect, Reproduction |
+| 18 | **[Improve System Design](18-System-Design/index.html)** | 8 Dimensions: High Availability, Distributed Architecture |
+| 19 | **[SEO Optimization](19-SEO/index.html)** | 8 Pillars: Technical Audits, Core Web Vitals, Structured Data |
+| 20 | **[Scalability](20-Scalability/index.html)** | 10 Layers: Load Balancing, Caching, Asynchronous Queues |
 
 ---
 

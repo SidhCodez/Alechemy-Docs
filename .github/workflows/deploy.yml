@@ -2,9 +2,9 @@ name: Build and Test Alchemy Docs
 
 on:
   push:
-    branches: [main]
+    branches: [main, issues1]
   pull_request:
-    branches: [main]
+    branches: [main, issues1]
 
 jobs:
   build:
@@ -36,6 +36,8 @@ jobs:
           test -f landing/out/index.html
           test -f landing/out/docs/index.html
           test -f landing/out/docs/searchindex.js
+          test -f landing/out/docs/hackathon-alchemy/01-AI-ML/README.html
+          test -f landing/out/docs/builder-alchemy/README.html
           echo "Build verified successfully."
 
       - name: Upload build artifacts

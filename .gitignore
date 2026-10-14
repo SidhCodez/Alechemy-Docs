@@ -16,3 +16,6 @@ landing/node_modules
 landing/.next
 landing/out
 landing/package-lock.json
+
+# issues audit
+issues/

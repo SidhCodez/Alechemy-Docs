@@ -8,7 +8,7 @@
 
         <!-- Custom HTML head -->
 
-        <meta name="description" content="The ultimate prompt framework for hackathons, builders, and creators.">
+        <meta name="description" content="EVIDENCE_MODEL prompt for 01. AI / ML Hackathons (phase 2): Complete blueprint prompt, technical requirements, and execution guidelines for builders.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
@@ -139,7 +139,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">Alchemy Docs</h1>
+                    <div class="menu-title">Alchemy Docs</div>
 
                     <div class="right-buttons">
                         <a href="../../../print.html" title="Print this book" aria-label="Print this book">
@@ -188,27 +188,52 @@
 <strong>Section:</strong> Phase 2: Technical Blueprint</p>
 </blockquote>
 <hr />
-<pre><code class="language-text">You are a RAG and knowledge management expert.
-Using the PRD and AI Rules, create the Evidence and Grounding Model for this AI hackathon project.
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>Modern AI hackathons frequently hinge on Retrieval-Augmented Generation (RAG) and grounded question-answering. However, judges are quick to spot hallucinations or hand-waving AI outputs. A formal Evidence Model defines the authoritative sources of truth, chunking algorithms, vector similarity metrics, citation formats, and validation checks that ground your model's outputs.</p>
+<p>This blueprint prompt instructs your AI specialist to construct a robust evidence and grounding framework that gives judges confidence in your system's accuracy.</p>
+<hr />
+<h2 id="core-grounding--rag-principles"><a class="header" href="#core-grounding--rag-principles">Core Grounding &amp; RAG Principles</a></h2>
+<p>When architecting an Evidence Model:</p>
+<ul>
+<li><strong>Corpus Boundaries:</strong> Explicitly define the boundaries of your knowledge base. Ingesting clean, well-curated documents yields far superior demo results compared to dumping raw, unparsed web scrapes.</li>
+<li><strong>Chunking Strategy:</strong> Tailor chunk size to your retrieval unit. Semantic chunking or recursive character splitting (e.g., 500–800 characters with 100-character overlap) preserves context while preventing token overflow.</li>
+<li><strong>Top-K &amp; Similarity Filtering:</strong> Retrieve a focused set of chunks (typically Top 3–5) and apply a similarity threshold cutoff (e.g., cosine similarity &gt;0.78) to prevent irrelevant noise from contaminating the LLM context.</li>
+<li><strong>Verifiable Citations:</strong> Require the AI to cite specific source names, chunk IDs, or page numbers in every factual claim so judges can verify answers in real time.</li>
+</ul>
+<hr />
+<h2 id="the-blueprint-prompt"><a class="header" href="#the-blueprint-prompt">The Blueprint Prompt</a></h2>
+<p>Copy and paste the following prompt into your AI coding assistant (ChatGPT, Claude, Cursor, Copilot) after providing your PRD and AI Rules documents:</p>
+<pre><code class="language-text">You are a RAG and knowledge grounding expert.
+Using the PRD, System Architecture, and AI Rules below, create the Evidence and Grounding Model for this AI hackathon project.
 
 PRD: [PASTE PRD]
 AI_RULES: [PASTE AI_RULES]
+ARCHITECTURE: [PASTE SYSTEM_ARCHITECTURE]
 
 Provide:
-1. Source of truth (Where does the AI get its facts?)
-2. Chunking strategy (If using documents, how are they split?)
-3. Embedding model (Which model, why?)
-4. Vector Database (Which one, why?)
-5. Retrieval logic (How many chunks to retrieve, similarity threshold)
-6. Citation format (How does the AI show its sources?)
-7. Hallucination checks (How to verify the AI isn't making things up)
-8. Fallback if no evidence is found
+1. Primary source of truth definition (Where does the AI obtain its validated facts?)
+2. Document ingestion and chunking strategy (Optimal chunk size, overlap, and preprocessing rules)
+3. Embedding model selection (Model name, dimensions, cost, and latency rationale)
+4. Vector storage solution (Database selection and indexing strategy)
+5. Retrieval logic (Top-K parameter, similarity metric, threshold cutoffs, and reranking if necessary)
+6. Grounded prompt template (The exact wrapper prompt injecting context chunks with strict adherence rules)
+7. Source citation format (How the model references specific documents, pages, or chunk IDs in its output)
+8. Hallucination detection and verification checklist (Pre-output checks and refusal handling when evidence is lacking)
+9. Non-RAG alternative grounding (If RAG is unnecessary, provide few-shot or structured injection alternatives)
 
-If RAG is not needed for this project, explain alternative grounding techniques (e.g., few-shot prompting, structured data injection).
+Ensure the evidence model is simple to implement and yields rock-solid, demonstrable grounding during judging.
 
---------------
-``
+-------------------------
 </code></pre>
+<hr />
+<h2 id="expected-output-structure"><a class="header" href="#expected-output-structure">Expected Output Structure</a></h2>
+<p>A complete Evidence Model document should include:</p>
+<ol>
+<li><strong>Pipeline Data Flow:</strong> Ingestion, chunking, embedding, indexing, retrieval, and prompt injection steps.</li>
+<li><strong>Chunk Metadata Schema:</strong> Fields stored alongside vector embeddings (e.g., <code>document_id</code>, <code>source_url</code>, <code>chunk_index</code>, <code>text_snippet</code>).</li>
+<li><strong>Grounding Prompt Specification:</strong> Verbatim system instructions forcing the LLM to rely exclusively on supplied context.</li>
+<li><strong>Citation UI Specification:</strong> How frontend components render clickable source pills or footnotes from citations.</li>
+</ol>
 
                     </main>
 

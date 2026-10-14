@@ -8,7 +8,7 @@
 
         <!-- Custom HTML head -->
 
-        <meta name="description" content="The ultimate prompt framework for hackathons, builders, and creators.">
+        <meta name="description" content="AI_RULES prompt for 01. AI / ML Hackathons (phase 2): Complete blueprint prompt, technical requirements, and execution guidelines for builders.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
@@ -139,7 +139,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">Alchemy Docs</h1>
+                    <div class="menu-title">Alchemy Docs</div>
 
                     <div class="right-buttons">
                         <a href="../../../print.html" title="Print this book" aria-label="Print this book">
@@ -188,6 +188,21 @@
 <strong>Section:</strong> Phase 2: Technical Blueprint</p>
 </blockquote>
 <hr />
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>Deploying an AI-driven application in a high-stakes hackathon environment demands strict behavioral guardrails. Without well-defined rules, language models can hallucinate false claims, leak proprietary instructions, exceed context windows, or produce malformed responses that crash your frontend parser during a live demonstration.</p>
+<p>This blueprint prompt guides your AI architect to establish clear system instructions, safety boundaries, hallucination mitigations, and fallback strategies for the entire development team.</p>
+<hr />
+<h2 id="key-ai-governance-considerations"><a class="header" href="#key-ai-governance-considerations">Key AI Governance Considerations</a></h2>
+<p>When creating your project guardrails:</p>
+<ul>
+<li><strong>System Persona &amp; Boundaries:</strong> Define precisely what the model is authorized to do and what requests it must decline. For example, instruct it to refuse unrelated coding requests or financial advice.</li>
+<li><strong>Output Determinism:</strong> For programmatic pipelines, mandate JSON mode or strict schema adherence with negative constraints (e.g., "Do NOT output markdown code fences or conversational conversational preamble").</li>
+<li><strong>Hallucination Mitigation:</strong> Enforce a "say 'I don't know' when uncertain" policy, and instruct the model to cite specific IDs or keys from supplied context rather than extrapolating facts.</li>
+<li><strong>Graceful Degradation:</strong> Specify fallback copy for when upstream APIs trigger rate limits (HTTP 429), timeouts, or safety filters.</li>
+</ul>
+<hr />
+<h2 id="the-blueprint-prompt"><a class="header" href="#the-blueprint-prompt">The Blueprint Prompt</a></h2>
+<p>Copy and paste the following prompt into your AI coding assistant (ChatGPT, Claude, Cursor, Copilot) after providing your PRD and System Architecture documents:</p>
 <pre><code class="language-text">You are an AI safety and prompt engineering expert.
 Using the PRD and System Architecture, create the AI Rules and Guardrails document for this hackathon project.
 
@@ -206,10 +221,19 @@ Create the AI_RULES.md with these sections:
 9. Output formatting rules (JSON, Markdown, etc.)
 10. A checklist for developers to verify AI behavior before the demo
 
-Keep the rules practical and enforceable within a hackathon timeframe.
+Ensure the rules are concise, testable, and prevent embarrassing failures during judging.
 
----------------
+-----------------
 </code></pre>
+<hr />
+<h2 id="expected-output-structure"><a class="header" href="#expected-output-structure">Expected Output Structure</a></h2>
+<p>A complete AI Rules document should provide:</p>
+<ol>
+<li><strong>Master System Prompt:</strong> The verbatim base prompt loaded into every LLM request.</li>
+<li><strong>Defensive Prompting Clauses:</strong> Concrete jailbreak defense instructions and injection protections.</li>
+<li><strong>Structured Fallback Handlers:</strong> Predetermined canned messages for edge cases, downtime, and out-of-scope prompts.</li>
+<li><strong>Pre-Demo Verification Matrix:</strong> A 5-point test script to ensure safety rules remain intact after iterative prompt tuning.</li>
+</ol>
 
                     </main>
 

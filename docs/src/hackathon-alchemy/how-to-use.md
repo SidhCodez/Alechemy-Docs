@@ -48,4 +48,4 @@ Every prompt in Hackathon Alchemy emphasizes:
 
 ## 🧭 Next Step
 
-Head over to **[01. AI / ML Hackathons](01-AI-ML/README.md)** or browse the sidebar to start your project.
+Head over to **[01. AI / ML Hackathons](01-AI-ML/index.html)** or browse the sidebar to start your project.

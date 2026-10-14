@@ -8,7 +8,7 @@
 
         <!-- Custom HTML head -->
 
-        <meta name="description" content="The ultimate prompt framework for hackathons, builders, and creators.">
+        <meta name="description" content="DATABASE_SCHEMA prompt for 01. AI / ML Hackathons (phase 2): Complete blueprint prompt, technical requirements, and execution guidelines for builders.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
@@ -139,7 +139,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">Alchemy Docs</h1>
+                    <div class="menu-title">Alchemy Docs</div>
 
                     <div class="right-buttons">
                         <a href="../../../print.html" title="Print this book" aria-label="Print this book">
@@ -188,6 +188,20 @@
 <strong>Section:</strong> Phase 2: Technical Blueprint</p>
 </blockquote>
 <hr />
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>Designing a resilient database schema for an AI/ML hackathon application requires balancing traditional application data (users, organizations, payments) with AI-specific data structures (chat threads, message histories, embeddings, prompt telemetry, and evaluation logs).</p>
+<p>In a fast-paced 24–48 hour sprint, over-engineering the database is a common failure mode. This blueprint prompt guides your LLM to generate an efficient, production-ready SQL or NoSQL schema that covers core application state without introducing unnecessary complexity.</p>
+<hr />
+<h2 id="key-ai-database-considerations"><a class="header" href="#key-ai-database-considerations">Key AI Database Considerations</a></h2>
+<p>When architecting data storage for AI hackathon prototypes:</p>
+<ul>
+<li><strong>Vector Storage:</strong> Decide early between an all-in-one database with vector support (e.g., PostgreSQL with <code>pgvector</code>, Supabase) versus a dedicated vector database (Pinecone, Qdrant, Chroma). For hackathons, an integrated solution like PostgreSQL + <code>pgvector</code> eliminates multi-database sync issues.</li>
+<li><strong>Conversation State:</strong> Store distinct <code>threads</code> (or <code>sessions</code>) and <code>messages</code>. Every message should record <code>role</code> (system, user, assistant, tool), <code>content</code>, <code>token_count</code>, and optional metadata like <code>finish_reason</code> or latency.</li>
+<li><strong>Audit &amp; Cost Tracking:</strong> Track model invocations, prompt versions, and token usage to monitor API costs and debug hallucinations during live judging.</li>
+</ul>
+<hr />
+<h2 id="the-blueprint-prompt"><a class="header" href="#the-blueprint-prompt">The Blueprint Prompt</a></h2>
+<p>Copy and paste the following prompt into your AI coding assistant (ChatGPT, Claude, Cursor, Copilot) after providing your Project PRD and Architecture documents:</p>
 <pre><code class="language-text">Act as a senior database engineer.
 Using the PRD and System Architecture below, design the database schema for an AI hackathon project.
 
@@ -203,15 +217,31 @@ Provide:
 6. Relationships
 7. Required fields
 8. Optional fields
-9. Indexes where useful
+9. Indexes where useful (including HNSW or IVFFlat vector indexes if applicable)
 10. Example records
-11. SQL schema
+11. Complete SQL schema (PostgreSQL dialect preferred)
 
 Explain why each table exists. 
 Keep the database simple enough for a beginner hackathon team to understand and maintain.
 
 -------------------------
 </code></pre>
+<hr />
+<h2 id="expected-output-structure"><a class="header" href="#expected-output-structure">Expected Output Structure</a></h2>
+<p>A successful schema generation should provide:</p>
+<ol>
+<li><strong>Core Relational Tables:</strong> <code>users</code>, <code>workspaces</code>/<code>projects</code>, <code>sessions</code>.</li>
+<li><strong>AI History Tables:</strong> <code>chat_messages</code> with parent-message tracking for branching, token metrics, and timestamping.</li>
+<li><strong>Knowledge Base / Vector Tables:</strong> <code>documents</code>, <code>document_chunks</code> with <code>vector(1536)</code> (or matching your embedding dimension) and content hashing.</li>
+<li><strong>Indexes &amp; Constraints:</strong> Foreign key constraints with cascading deletes where appropriate, plus B-Tree indexes on lookup keys (<code>user_id</code>, <code>created_at</code>) and vector indexes for nearest-neighbor similarity.</li>
+</ol>
+<hr />
+<h2 id="best-practices-for-hackathon-sprints"><a class="header" href="#best-practices-for-hackathon-sprints">Best Practices for Hackathon Sprints</a></h2>
+<ul>
+<li><strong>Use UUIDs or CUIDs:</strong> Prevents collision issues when seeding demo data or running parallel tests.</li>
+<li><strong>Avoid Premature Sharding:</strong> Keep all tables in a single relational database; hackathon data volume rarely exceeds standard single-instance capacity.</li>
+<li><strong>Seed Scripts Ready:</strong> Prepare a deterministic SQL seed script with 5–10 realistic records so your demo UI looks vibrant and lived-in immediately upon deployment.</li>
+</ul>
 
                     </main>
 
